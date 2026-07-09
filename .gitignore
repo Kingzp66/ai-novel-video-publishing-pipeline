@@ -5,6 +5,7 @@
 API.env.txt
 *credentials*
 *secrets*
+encrypted-backups/*.passphrase.txt
 
 # Python environments and caches
 .venv/
