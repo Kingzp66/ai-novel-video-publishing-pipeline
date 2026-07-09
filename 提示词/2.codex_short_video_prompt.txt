@@ -1,0 +1,308 @@
+Codex YouTube Shorts 批量视频生成提示词
+版本：竖屏短视频 + 真实钓鱼教学插画风
+
+我已经把生成短视频需要的资料放在【D:\ai-novel-video-generator\youtube12 lobster】里面了。
+
+请你按照固定短视频生成模式，帮我把这些资料批量生成多段竖屏短视频，而不是生成一个横屏长视频。
+
+最终视频用途：
+YouTube Shorts / TikTok / Instagram Reels
+
+视频格式：
+竖屏 9:16
+分辨率 1080x1920
+每段短视频不超过 3 分钟
+建议每段控制在 45 秒到 120 秒
+每段都要能单独发布
+不要生成横屏 16:9 视频
+不要生成一个合并版长视频
+
+一、读取资料
+
+1. 请读取这个文件夹里的所有资料，包括：
+   - script.txt
+   - scenes.csv
+   - scenes.json
+   - image_prompts.jsonl
+   - short_segments.json
+   - shorts.csv
+   - short_scripts/
+   - production_notes.md
+   - 说明文档
+   - 已有图片
+   - 已有音频
+   - 其他可用素材
+
+2. 如果文件夹里已经有短视频拆分资料，例如：
+   - short_segments.json
+   - shorts.csv
+   - short_scripts/
+   - image_prompts.jsonl
+   - scenes.csv
+
+   请优先按照这些短视频分段资料生成视频。
+
+3. 如果没有提前拆分好的短视频资料，请根据 script.txt 和 scenes.csv 自动拆成多段适合短视频的内容。
+
+二、短视频拆分要求
+
+1. 每段短视频时长必须控制在 3 分钟以内。
+2. 每段短视频建议控制在 45 秒到 120 秒。
+3. 每段短视频必须是一个相对完整的小主题、小故事或小知识点。
+4. 不要把一句话硬切开，要根据内容逻辑自然拆分。
+5. 每段短视频都要有：
+   - 前 3 秒吸引人的开头
+   - 清楚的主题
+   - 连贯的中间内容
+   - 简短有力的结尾
+6. 每段短视频都要单独生成一个 MP4 文件。
+7. 不要输出一个总视频。
+
+三、视频结构
+
+每段短视频请按照下面结构制作：
+
+1. Hook
+前 3 秒抓住观众注意力。
+
+2. Setup
+快速说明这一段要讲什么。
+
+3. Main Story
+保留原文重点，但节奏更快。
+
+4. Payoff
+给出这一段的重点、反转、知识点或结论。
+
+5. Ending
+用一句简短有力的话结束，可以留下悬念或引导观看下一段。
+
+四、图片生成要求
+
+1. 如果已有 images/ 文件夹，并且里面有对应图片，请优先使用已有图片。
+2. 如果已有图片不足，请根据每个短视频段落对应的 image_prompt 自动补充生成图片。
+3. 请使用 Codex 内置 GPT 图像生成能力生成竖屏 9:16 图片。
+4. 图片尺寸为 1080x1920。
+5. 图片需要保持统一画风、统一人物、统一钓鱼装备逻辑。
+6. 图片命名格式如下：
+
+   short_01_scene_01.png
+   short_01_scene_02.png
+   short_01_scene_03.png
+
+   short_02_scene_01.png
+   short_02_scene_02.png
+   short_02_scene_03.png
+
+7. 每段短视频至少需要 4 张画面。
+8. 如果某段内容较长，可以生成 6 到 10 张画面。
+9. 不要生成横屏 16:9 图片。
+10. 不要生成 1920x1080 横屏素材。
+
+五、图片统一画风要求
+
+所有图片必须严格遵守以下画风：
+
+Vertical 9:16 composition, vintage hand-drawn fishing instructional illustration style, clean line art, lightly colored natural tones, beige or off-white paper-like background, simple and clear educational diagram aesthetic, realistic fishing gear and fish anatomy, realistic outdoor water environments, minimal but informative composition, polished editorial illustration quality, no text, no logos, no subtitles, no watermark, no readable signs.
+
+画风参考：
+
+1. 复古手绘钓鱼教学插画风
+2. 像专业钓鱼教材、钓组说明图、鱼类示意图
+3. 米色纸张背景
+4. 干净线稿
+5. 少量柔和上色
+6. 画面简洁清楚
+7. 重点突出鱼、鱼钩、浮漂、鱼线、鱼竿、铅坠、饵料、水下结构
+8. 不要生成魔幻、科幻、夸张卡通或奇怪的画面
+9. 不要生成照片写实风
+10. 不要生成3D渲染风
+11. 不要生成复杂杂乱的概念图
+
+六、图片真实合理性要求
+
+生成每张图片前，必须检查画面是否符合真实钓鱼逻辑。
+
+请严格避免以下问题：
+
+1. 鱼的外形错误
+   - 不要生成变形鱼
+   - 不要生成怪异比例的鱼
+   - 不要生成幻想鱼
+   - 鱼鳍、尾巴、眼睛、嘴巴位置必须自然合理
+
+2. 钓具结构错误
+   - 鱼钩、浮漂、鱼线、铅坠、子线、主线、鱼竿、卷线器必须合理
+   - 钓组连接方式必须符合真实钓鱼逻辑
+   - 不要让鱼钩、浮漂、铅坠随意漂浮
+   - 不要出现断裂、不连接、不合理的钓组
+
+3. 手部和动作错误
+   - 手持鱼钩、挂饵、绑线、抛竿、收线动作要自然
+   - 不要出现多余手指
+   - 不要出现畸形手
+   - 不要出现错误持握姿势
+   - 不要让人物动作违反物理逻辑
+
+4. 水下环境错误
+   - 湖泊、河流、水草、岩石、树木、水下结构要真实可信
+   - 不要出现超现实背景
+   - 不要出现混乱、不清楚、过度复杂的场景
+
+5. 教学表达不清楚
+   - 每张图必须一眼看出重点
+   - 画面要清楚表达当前旁白的钓鱼知识点
+   - 不要生成抽象隐喻图
+   - 不要生成观众看不懂的画面
+
+绝对不要生成：
+
+- surreal imagery
+- fantasy creatures
+- distorted fish anatomy
+- extra fingers
+- broken fishing rigs
+- floating disconnected fishing gear
+- nonsensical gear arrangements
+- chaotic cluttered composition
+- exaggerated cartoon comedy visuals
+- random objects unrelated to fishing
+- text
+- logos
+- subtitles
+- watermark
+- readable signs
+
+七、图片生成逻辑
+
+不要只是把旁白直译成图片。
+
+请根据每句旁白思考：
+
+“如果这是一个专业钓鱼教学频道，这句话最适合用什么画面让观众一眼看懂？”
+
+每张图应该优先表现：
+
+1. 当前钓鱼知识点
+2. 鱼和钓具的关系
+3. 水下结构
+4. 钓组运行方式
+5. 鱼咬钩或追饵逻辑
+6. 真实钓鱼动作
+7. 简洁清楚的教学画面
+
+八、视频画面要求
+
+1. 输出竖屏短视频，比例 9:16。
+2. 最终分辨率为 1080x1920。
+3. 每张图片加入轻微动态效果，例如：
+   - slow push in
+   - slow zoom out
+   - subtle parallax movement
+   - vertical pan
+   - gentle handheld motion
+   - slow left-to-right pan
+   - dramatic close-up push
+   - reveal shot
+   - slight camera drift
+
+4. 动态效果不要太夸张。
+5. 保持主体居中。
+6. 避免字幕挡住鱼、鱼钩、钓组、人物手部或重要物品。
+7. 转场干净自然，不要过度花哨。
+
+九、英文旁白要求
+
+1. 根据每段短视频内容生成英文旁白。
+2. 旁白语气要自然，像真人在讲钓鱼故事或教学。
+3. 不要生硬朗读。
+4. 不要像广告。
+5. 不需要中文字幕。
+6. 只保留英文字幕。
+7. 使用 edge-tts 的 en-US-BrianNeural 美式男声作为配音。
+8. 每段短视频都要单独生成对应音频文件。
+9. 音频命名格式如下：
+
+   short_01_voice.mp3
+   short_02_voice.mp3
+   short_03_voice.mp3
+
+十、英文字幕要求
+
+1. 必须按照真实语音长度同步英文字幕。
+2. 不要使用固定时间平均分配字幕。
+3. 字幕必须和旁白逐句同步。
+4. 字幕样式为英文电影字幕风格：
+   - 底部居中
+   - 白色字体
+   - 黑色描边或阴影
+   - 清晰易读
+   - 不遮挡主体
+
+5. 每条字幕不要太长。
+6. 每条字幕建议控制在 1 到 2 行。
+7. 字幕节奏要适合短视频观看。
+8. 每段短视频都要生成对应 SRT 字幕文件。
+9. 字幕文件命名格式如下：
+
+   short_01.srt
+   short_02.srt
+   short_03.srt
+
+十一、背景音乐要求
+
+1. 每段短视频都要添加低音量背景音乐。
+2. 背景音乐不能盖过旁白。
+3. 背景音乐音量要明显低于人声。
+4. 音乐风格要适合钓鱼教学、户外、自然、轻微悬念或纪录片感。
+5. 不要使用太吵、太强烈或影响旁白清晰度的音乐。
+
+十二、输出文件结构
+
+请在原文件夹中创建：
+
+output/shorts/
+
+最终输出结构如下：
+
+D:\ai-novel-video-generator\youtube12 lobster\output\shorts\short_01\final_short_01.mp4
+D:\ai-novel-video-generator\youtube12 lobster\output\shorts\short_02\final_short_02.mp4
+D:\ai-novel-video-generator\youtube12 lobster\output\shorts\short_03\final_short_03.mp4
+
+每个 short 文件夹里需要包含：
+
+1. final_short_XX.mp4
+2. short_XX_voice.mp3
+3. short_XX.srt
+4. 使用到的图片
+5. 该短视频的脚本 txt
+6. 该短视频的分镜 csv 或 json
+
+十三、最终视频要求
+
+1. 每段视频必须是竖屏 1080x1920 MP4。
+2. 每段视频时长不能超过 3 分钟。
+3. 每段视频都要有英文配音。
+4. 每段视频都要有英文字幕。
+5. 每段视频都要有动态画面。
+6. 每段视频都要有低音量背景音乐。
+7. 每段视频都要能单独发布。
+8. 不要输出横屏 1920x1080 视频。
+9. 不要只输出一个总视频。
+10. 必须输出多段短视频。
+
+十四、生成完成后请告诉我
+
+生成完成后，请告诉我：
+
+1. 一共生成了几段短视频。
+2. 每段短视频的标题。
+3. 每段短视频的时长。
+4. 每段短视频的保存路径。
+5. 哪些图片是使用已有图片。
+6. 哪些图片是新生成的。
+7. 最终所有 MP4 文件路径。
+8. 是否所有图片都通过了真实钓鱼逻辑检查。
+9. 是否所有图片都符合复古手绘钓鱼教学插画风格。
+
+请严格按照以上要求执行。

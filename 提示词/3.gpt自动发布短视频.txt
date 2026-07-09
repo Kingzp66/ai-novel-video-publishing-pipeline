@@ -1,0 +1,260 @@
+You are my short-video publishing package assistant.
+
+I want to test the automatic publishing workflow for only the first short video: short_01.
+
+Your job is NOT to publish the video directly.
+Your job is to prepare a complete Codex-ready auto-publishing package for short_01, including platform metadata, publishing instructions, and thumbnail assets.
+
+Target platforms:
+
+- YouTube Shorts
+- TikTok
+- Instagram Reels
+- Facebook Reels
+
+Overall requirements:
+
+1. All output content should be in English unless I explicitly request another language.
+2. Optimize copy separately for each platform. Do not make all four platforms exactly the same.
+3. Titles should be attractive, but not scammy or misleading.
+4. Hashtags should feel natural and suitable for short-video platforms.
+5. YouTube must include: title, description, tags, hashtags, category, made_for_kids suggestion.
+6. TikTok must include: caption, hashtags, posting note.
+7. Instagram Reels must include: caption, hashtags, cover text suggestion.
+8. Facebook Reels must include: caption, hashtags, posting note.
+9. Do not require account passwords, cookies, or browser-login scraping.
+10. Assume Codex will publish through official APIs, Postiz, Upload-Post, n8n, Make, YouTube API, TikTok API, or Meta API.
+11. Output must be structured so Codex can read it directly.
+12. Only prepare materials for short_01, not the full series.
+
+Important thumbnail requirement:
+
+In addition to the publishing package, also create a thumbnail package for short_01.
+
+The thumbnail must:
+
+1. Be based on the actual content of short_01.
+2. Be optimized mainly for YouTube Shorts.
+3. Be visually strong, clear, and clickable.
+4. Match the topic and emotional hook of short_01.
+5. Not look spammy, fake, or scammy.
+6. Use a clean composition and strong focal point.
+7. If text is used, keep it short, bold, and easy to read.
+8. Also provide a clean no-text version.
+9. If image generation is supported, directly generate the final thumbnail image files.
+10. Include thumbnail assets in the final ZIP package.
+11. Update metadata.csv so thumbnail_file points to the correct thumbnail file.
+
+Please generate the following file contents:
+
+---
+
+# 1. folder_structure.txt
+
+Tell Codex what the folder should look like, for example:
+
+project/
+videos/
+thumbnails/
+metadata/
+logs/
+metadata.csv
+publishing_plan.json
+README_Codex.md
+
+The structure should include thumbnail files and thumbnail-related metadata files.
+
+---
+
+# 2. metadata.csv
+
+Generate CSV format.
+
+Required fields:
+
+video_id,
+video_file,
+thumbnail_file,
+platforms,
+youtube_title,
+youtube_description,
+youtube_tags,
+youtube_hashtags,
+youtube_category,
+youtube_made_for_kids,
+tiktok_caption,
+tiktok_hashtags,
+instagram_caption,
+instagram_hashtags,
+instagram_cover_text,
+facebook_caption,
+facebook_hashtags,
+privacy_status,
+schedule_time,
+timezone,
+allow_comments,
+status
+
+If no posting time is provided, leave schedule_time blank.
+
+This CSV must be written specifically for short_01.
+
+---
+
+# 3. publishing_plan.json
+
+Generate valid JSON.
+
+Required structure:
+
+- video_id
+- file_path
+- platforms
+- platform_specific_content
+- schedule
+- safety_checklist
+- posting_settings
+
+JSON must be valid and contain no comments.
+
+This JSON must be written specifically for short_01.
+
+---
+
+# 4. README_Codex.md
+
+Generate a README for Codex that explains:
+
+- which files Codex should read
+- where the video file should be placed
+- where the thumbnail files should be placed
+- what each column in metadata.csv means
+- what Codex should check before publishing
+- do not use passwords or cookies
+- API keys / OAuth tokens should be stored in .env
+- support dry-run mode first, do not publish immediately
+- if one platform fails, log the error and do not retry endlessly
+
+---
+
+# 5. codex_prompt.txt
+
+Generate a Codex prompt that I can directly copy into Codex.
+
+It must instruct Codex to:
+
+- Read videos from /videos
+- Read metadata.csv
+- Read publishing_plan.json
+- Support YouTube Shorts, TikTok, Instagram Reels, and Facebook Reels
+- Use official API, Postiz API, Upload-Post API, or other OAuth-based publishing tools
+- Do not use cookies, passwords, or browser-login scraping
+- Add dry-run mode
+- Add error logs
+- Validate video format before publishing
+- Validate title, caption, hashtags, schedule time
+- Do not publish immediately unless dry-run is disabled
+- Generate a report after posting
+
+---
+
+# 6. platform_checklist.md
+
+Generate a pre-publish checklist for each platform.
+
+YouTube Shorts:
+- vertical 9:16
+- suitable Shorts length
+- title
+- description
+- tags
+- hashtags
+- made for kids setting
+- category
+
+TikTok:
+- caption
+- hashtags
+- suitable for public posting
+- wording does not trigger policy problems
+
+Instagram Reels:
+- caption
+- hashtags
+- cover text
+- suitable for Reels
+
+Facebook Reels:
+- caption
+- hashtags
+- suitable for Page / Profile publishing
+
+---
+
+# 7. thumbnail_package
+
+Generate a thumbnail package for short_01.
+
+Required output:
+
+- thumbnail_concept
+- thumbnail_title_text_options
+- thumbnail_prompt
+- thumbnail_prompt_no_text
+- thumbnail_design_notes
+- thumbnail_filename
+
+Also include suggested output files:
+
+- thumbnails/short_01.jpg
+- thumbnails/short_01_clean.jpg
+- metadata/thumbnail_prompt.txt
+- metadata/thumbnail_notes.md
+
+If image generation is supported, directly generate:
+
+- the final thumbnail image
+- the clean no-text thumbnail image
+
+and include them in the final ZIP package.
+
+The thumbnail must match short_01 content and be attractive for YouTube Shorts.
+
+---
+
+# 8. final_summary
+
+At the end, explain in simple terms:
+
+- which files I should give to Codex
+- which files I must manually place into the folder
+- which information I must NOT give Codex, such as passwords or cookies
+- what I should do next
+
+---
+
+# 9. final_zip_package
+
+Please package everything into a Codex-ready ZIP structure.
+
+Include:
+
+- folder_structure.txt
+- metadata.csv
+- publishing_plan.json
+- README_Codex.md
+- codex_prompt.txt
+- platform_checklist.md
+- thumbnail_prompt.txt
+- thumbnail_notes.md
+- thumbnail files if generated
+- logs/ placeholder structure if needed
+
+Important:
+
+1. Only prepare materials for short_01.
+2. Use the actual content and topic of short_01.
+3. The output must be practical and ready for Codex to use.
+4. If thumbnail images are generated, include them inside the final ZIP package.
+5. The thumbnail_file field in metadata.csv must match the generated thumbnail file.
+6. Keep the output structured, clean, and implementation-friendly.

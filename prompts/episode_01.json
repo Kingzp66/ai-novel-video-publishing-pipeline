@@ -1,0 +1,84 @@
+{
+  "title": "The Girl Who Built Earth Again",
+  "episode_title": "The Last Game",
+  "aspect_ratio": "9:16",
+  "source_prompt": "The Girl Who Built Earth Again",
+  "voiceover": "The sky cracked open at 7:03 p.m.\nEvery screen on Earth went black.\nThen one sentence appeared.\nEARTH HAS FAILED.\nA mysterious voice announced the Dominion Trial.\nNinety-nine humans would be chosen as Lords.\nEvery piece of land they claimed and built would become humanity's next home.\nFailure meant death.\nSuccess meant survival.\nEveryone expected soldiers, scientists, and survival experts.\nInstead, the system chose Maya Lin.\nA nineteen-year-old girl eating instant noodles in her messy apartment.\nSeconds later, her room vanished.\nShe woke up barefoot on a deserted beach.\nBehind her was the ocean.\nIn front of her was a dark forest.\nA blue screen appeared.\nPLAYER 47 SELECTED.\nMISSION: SURVIVE. CLAIM LAND. BUILD A TERRITORY.\nOn Earth, billions watched her live stream.\nThe comments were merciless.\n\"She's useless.\"\n\"She won't survive one night.\"\n\"Humanity is doomed.\"\nMaya could not see them.\nShe only saw the tide rising toward her feet.\nNo food.\nNo knife.\nNo shoes.\nNo one to save her.\nFor one moment, she wanted to cry.\nThen she remembered her grandmother's words.\n\"Move first. Panic later.\"\nSo Maya turned away from the ocean...\nand walked into the forest.\nEveryone thought she would die by morning.\nThey were wrong.",
+  "character_prompt": "A realistic young Asian woman, 19 years old, messy black hair in a loose ponytail, wearing an oversized gray hoodie and black shorts, tired but determined eyes, ordinary student look, cinematic lighting, realistic skin texture, survival drama style, vertical 9:16 frame.",
+  "style_prompt": "cinematic realistic, apocalyptic survival, dramatic lighting, high detail, vertical 9:16.",
+  "negative_prompt": "No fantasy armor, no perfect makeup, no glamorous model look, no exaggerated anime face, no extra fingers, no distorted hands, no blurry face, no duplicate person.",
+  "scenes": [
+    {
+      "id": 1,
+      "duration": 7.79,
+      "caption": "The sky cracked open at 7:03 p.m.",
+      "prompt": "A modern city at dusk, people walking on the streets, suddenly the sky cracks open like a massive black wound across the clouds, cinematic apocalyptic atmosphere, dramatic lighting, realistic, high detail, vertical 9:16."
+    },
+    {
+      "id": 2,
+      "duration": 7.79,
+      "caption": "EARTH HAS FAILED.",
+      "prompt": "Close-up of multiple phones, televisions, laptops, and digital billboards turning black at the same time, then glowing white text appears: EARTH HAS FAILED, cinematic, realistic, high tension, vertical 9:16."
+    },
+    {
+      "id": 3,
+      "duration": 7.79,
+      "caption": "A new home can be won.",
+      "prompt": "Crowds in a city square looking up in fear, people holding phones, giant glowing screens appearing in the sky, apocalyptic news atmosphere, realistic cinematic lighting, vertical 9:16."
+    },
+    {
+      "id": 4,
+      "duration": 7.79,
+      "caption": "99 humans will be chosen.",
+      "prompt": "Ninety-nine glowing rectangular screens floating in the dark sky above Earth, mysterious blue system interface, divine sci-fi atmosphere, cinematic, high contrast, vertical 9:16."
+    },
+    {
+      "id": 5,
+      "duration": 7.79,
+      "caption": "Player 47: Maya Lin, 19.",
+      "prompt": "A messy small apartment bedroom, young Asian woman sitting cross-legged on the floor eating instant noodles from a pot, oversized gray hoodie, laptop open, laundry scattered, ordinary student life, realistic cinematic lighting, vertical 9:16."
+    },
+    {
+      "id": 6,
+      "duration": 7.79,
+      "caption": "Selection begins.",
+      "prompt": "Close-up of Maya's shocked face as blue digital countdown numbers reflect in her eyes, instant noodle pot slipping from her hands, dramatic slow motion, cinematic, realistic, vertical 9:16."
+    },
+    {
+      "id": 7,
+      "duration": 7.79,
+      "caption": "Then she vanished.",
+      "prompt": "Maya surrounded by white-blue light in her messy apartment, her body dissolving into particles, instant noodles falling in slow motion, sci-fi teleportation effect, cinematic, vertical 9:16."
+    },
+    {
+      "id": 8,
+      "duration": 7.79,
+      "caption": "Starting World: Uninhabited Island.",
+      "prompt": "Maya standing barefoot on a deserted beach at twilight, black ocean behind her, dark dense forest in front of her, oversized gray hoodie, confused and frightened, cinematic survival scene, realistic, vertical 9:16."
+    },
+    {
+      "id": 9,
+      "duration": 7.79,
+      "caption": "MISSION: SURVIVE. CLAIM LAND. BUILD.",
+      "prompt": "A glowing blue holographic system screen floating in front of Maya on the beach, text interface, ocean waves behind her, dark forest ahead, cinematic sci-fi survival, vertical 9:16."
+    },
+    {
+      "id": 10,
+      "duration": 7.79,
+      "caption": "\"She is useless.\" \"She won't survive one night.\"",
+      "prompt": "Split-screen style, people around the world watching Maya on giant sky screens, harsh chat comments floating in the air, anxious faces, global panic, cinematic, realistic, vertical 9:16."
+    },
+    {
+      "id": 11,
+      "duration": 7.79,
+      "caption": "No food. No knife. No shoes.",
+      "prompt": "Close-up of cold ocean water creeping toward Maya's bare feet on the sand, Maya standing still, tense atmosphere, dark forest in background, cinematic, realistic, vertical 9:16."
+    },
+    {
+      "id": 12,
+      "duration": 7.79,
+      "caption": "Everyone thought she would die by morning. They were wrong.",
+      "prompt": "Maya turns away from the ocean and walks into a dark forest alone, her gray hoodie moving in the wind, the forest looks dangerous and mysterious, cinematic survival fantasy, vertical 9:16."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+# Secrets
+.env
+.env.*
+!.env.example
+API.env.txt
+*credentials*
+*secrets*
+
+# Python environments and caches
+.venv/
+.venv-*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.cache/
+node_modules/
+tmp/
+logs/
+
+# Generated media and project workspaces
+assets/videos/
+assets/audio/
+output/
+youtube*/
+MC VEDIO/
+MoneyPrinterTurbo/
+models/
+1/
+
+# Large generated/downloaded files
+*.mp4
+*.mov
+*.mkv
+*.mp3
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.zip
+*.SLDPRT
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

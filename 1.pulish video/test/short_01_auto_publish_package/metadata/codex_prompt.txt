@@ -1,0 +1,48 @@
+You are Codex. Build an automated short-form video publishing script for this project.
+
+Requirements:
+
+1. Read videos from /videos.
+2. Read metadata.csv.
+3. Read publishing_plan.json.
+4. Support YouTube Shorts, TikTok, Instagram Reels, and Facebook Reels.
+5. Use official API, Postiz API, Upload-Post API, n8n, Make, or another OAuth-based publishing tool.
+6. Do not use cookies, passwords, browser-login scraping, or manual browser automation.
+7. API keys and OAuth tokens must be read from a .env file.
+8. Add dry-run mode and make dry-run enabled by default.
+9. Do not publish immediately unless dry-run is explicitly disabled.
+10. Add error logs under /logs.
+11. Validate video format before publishing:
+    - file exists
+    - supported extension such as .mp4
+    - vertical 9:16 aspect ratio
+    - duration under 3 minutes
+12. Validate metadata before publishing:
+    - title is present for YouTube
+    - captions are present for TikTok, Instagram Reels, and Facebook Reels
+    - hashtags are present and not excessive
+    - schedule_time is either empty or valid
+    - timezone is valid
+13. For YouTube Shorts, send title, description, tags, category, made_for_kids, privacy_status, and comments setting when supported.
+14. For TikTok, send caption, hashtags, schedule settings when supported, privacy setting when supported, and comments setting when supported.
+15. For Instagram Reels, send caption, hashtags, cover image if supported, privacy/page settings through Meta API or OAuth-based tool.
+16. For Facebook Reels, send caption, hashtags, page/profile target through Meta API or OAuth-based tool.
+17. If a platform fails, log the error and continue safely without endless retries.
+18. Add max 2 retries per platform with backoff.
+19. Generate a report after posting:
+    - logs/dry_run_report.json for dry-run
+    - logs/publish_report.json for real posting
+    - include platform status, validation result, API result, post URL if returned, and errors.
+20. Keep the code modular:
+    - load_metadata()
+    - load_publishing_plan()
+    - validate_video()
+    - validate_metadata()
+    - publish_youtube()
+    - publish_tiktok()
+    - publish_instagram()
+    - publish_facebook()
+    - write_report()
+    - main()
+
+Start by creating a safe dry-run implementation. Do not publish anything until dry-run is disabled with a clear command-line flag such as --publish.

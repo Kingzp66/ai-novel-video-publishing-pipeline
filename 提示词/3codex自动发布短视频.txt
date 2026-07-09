@@ -1,0 +1,414 @@
+我已经把短视频自动发布所需要的所有资料放在【这里填你的文件夹路径】里面了。
+
+请你读取这个文件夹里的所有内容，并根据里面的发布资料，帮我完成短视频自动发布流程。
+
+目标平台：
+
+- YouTube Shorts
+- TikTok
+- Instagram Reels
+- Facebook Reels
+
+重要要求：
+
+1. 请不要使用账号密码。
+2. 请不要使用 cookie。
+3. 请不要使用浏览器自动登录、模拟登录或 scraping。
+4. 请只使用官方 API、OAuth、Postiz API、Upload-Post API、n8n、Make，或其他基于 OAuth/API token 的正规发布方式。
+5. API key、OAuth token、access token 等敏感信息必须从 .env 文件读取。
+6. 不要把任何 token、API key、secret 打印到日志里。
+7. 默认先使用 dry-run mode，不要直接发布。
+8. 只有当 dry-run 被明确设置为 false，或者我明确要求正式发布时，才可以执行真实发布。
+9. 如果某个平台发布失败，请记录错误，不要无限重试。
+10. 每个平台最多重试 1 到 2 次。
+11. 发布完成后必须生成发布报告。
+
+请按照下面步骤执行。
+
+一、读取项目文件夹
+
+请读取【这里填你的文件夹路径】中的所有文件和子文件夹，包括但不限于：
+
+- videos/
+- thumbnails/
+- metadata/
+- logs/
+- metadata.csv
+- publishing_plan.json
+- README_Codex.md
+- platform_checklist.md
+- .env
+- 其他说明文件
+
+如果存在以下文件，请优先读取：
+
+1. metadata.csv
+2. publishing_plan.json
+3. README_Codex.md
+4. platform_checklist.md
+
+二、读取视频文件
+
+请从 videos/ 文件夹读取所有需要发布的短视频文件。
+
+支持的视频格式包括：
+
+- .mp4
+- .mov
+
+请检查每个视频：
+
+1. 文件是否存在。
+2. 文件是否可以读取。
+3. 是否为竖屏 9:16。
+4. 是否适合短视频平台发布。
+5. 视频时长是否符合平台要求。
+6. 文件大小是否合理。
+7. 是否有对应的 metadata 记录。
+8. 是否有对应的 thumbnail 或 cover 文件。
+
+如果视频文件缺失，请停止发布该视频，并记录错误。
+
+三、读取 metadata.csv
+
+请读取 metadata.csv。
+
+metadata.csv 字段包括：
+
+- video_id
+- video_file
+- thumbnail_file
+- platforms
+- youtube_title
+- youtube_description
+- youtube_tags
+- youtube_hashtags
+- youtube_category
+- youtube_made_for_kids
+- tiktok_caption
+- tiktok_hashtags
+- instagram_caption
+- instagram_hashtags
+- instagram_cover_text
+- facebook_caption
+- facebook_hashtags
+- privacy_status
+- schedule_time
+- timezone
+- allow_comments
+- status
+
+请根据 video_id 匹配视频文件。
+
+如果某个字段为空：
+
+1. 如果是 schedule_time 为空，请不要乱填发布时间。
+2. 如果是 caption、title、hashtags 等核心发布信息为空，请记录 warning。
+3. 如果缺少平台必须字段，请不要发布到该平台。
+4. 如果 status 是 posted 或 published，请默认跳过，避免重复发布。
+5. 如果 status 是 draft、ready 或 blank，可以进入 dry-run 检查流程。
+
+四、读取 publishing_plan.json
+
+请读取 publishing_plan.json。
+
+每个视频应包含：
+
+- video_id
+- file_path
+- platforms
+- platform_specific_content
+- schedule
+- safety_checklist
+- posting_settings
+
+请验证 JSON 是否为合法 JSON。
+
+如果 publishing_plan.json 和 metadata.csv 内容冲突，请优先使用 publishing_plan.json，但要在报告中说明冲突内容。
+
+五、发布方式要求
+
+请根据当前项目可用条件选择发布方式。
+
+优先顺序：
+
+1. Postiz API
+2. Upload-Post API
+3. YouTube Data API
+4. TikTok Content Posting API
+5. Meta Graph API for Instagram Reels / Facebook Reels
+6. n8n webhook
+7. Make webhook
+
+如果项目中已经有现成的发布脚本或配置文件，请优先复用已有结构。
+
+如果没有发布脚本，请帮我创建一个自动发布脚本。
+
+脚本需要支持：
+
+- dry-run mode
+- real publish mode
+- platform selection
+- metadata validation
+- video format validation
+- schedule validation
+- error logging
+- posting report generation
+- duplicate posting prevention
+
+六、不要使用的方式
+
+请不要使用以下方式：
+
+- 账号密码登录
+- cookie 登录
+- 浏览器自动化登录
+- Selenium 模拟人工上传
+- Playwright 模拟人工上传
+- Puppeteer 模拟人工上传
+- 非官方 scraping
+- 绕过平台限制的方式
+
+如果某个平台无法通过 API 或 OAuth 正常发布，请跳过该平台，并在报告中说明原因。
+
+七、.env 设置
+
+请从 .env 文件读取需要的环境变量。
+
+可能包含：
+
+- POSTIZ_API_KEY
+- POSTIZ_BASE_URL
+- UPLOAD_POST_API_KEY
+- YOUTUBE_CLIENT_ID
+- YOUTUBE_CLIENT_SECRET
+- YOUTUBE_REFRESH_TOKEN
+- TIKTOK_CLIENT_KEY
+- TIKTOK_CLIENT_SECRET
+- TIKTOK_ACCESS_TOKEN
+- META_APP_ID
+- META_APP_SECRET
+- META_ACCESS_TOKEN
+- INSTAGRAM_BUSINESS_ACCOUNT_ID
+- FACEBOOK_PAGE_ID
+- N8N_WEBHOOK_URL
+- MAKE_WEBHOOK_URL
+- DRY_RUN
+
+如果缺少必要环境变量，请不要要求我提供账号密码。  
+请只告诉我缺少哪个 API token 或 OAuth 变量。
+
+八、YouTube Shorts 发布要求
+
+发布到 YouTube Shorts 时，请读取：
+
+- youtube_title
+- youtube_description
+- youtube_tags
+- youtube_hashtags
+- youtube_category
+- youtube_made_for_kids
+- privacy_status
+- schedule_time
+- timezone
+- allow_comments
+
+请检查：
+
+1. 视频是否竖屏。
+2. 视频长度是否适合 Shorts。
+3. title 是否存在。
+4. description 是否存在。
+5. hashtags 是否存在。
+6. made_for_kids 是否有明确设置。
+7. category 是否存在。
+8. privacy_status 是否有效。
+9. 如果 schedule_time 为空，不要自动安排发布时间。
+10. 如果 dry-run=true，只输出将要发布的内容，不要真实上传。
+
+九、TikTok 发布要求
+
+发布到 TikTok 时，请读取：
+
+- tiktok_caption
+- tiktok_hashtags
+- privacy_status
+- schedule_time
+- timezone
+
+请检查：
+
+1. caption 是否存在。
+2. hashtags 是否自然。
+3. 是否可能包含违规词。
+4. 视频是否适合公开发布。
+5. 如果 schedule_time 为空，不要乱填。
+6. 如果 API 不支持当前账号发布或排程，请记录错误。
+
+十、Instagram Reels 发布要求
+
+发布到 Instagram Reels 时，请读取：
+
+- instagram_caption
+- instagram_hashtags
+- instagram_cover_text
+- thumbnail_file
+- privacy_status
+- schedule_time
+- timezone
+
+请检查：
+
+1. caption 是否存在。
+2. hashtags 是否自然。
+3. cover text 是否适合做封面。
+4. 是否适合 Reels。
+5. 是否存在 Instagram Business Account ID。
+6. 是否可以通过 Meta Graph API 发布。
+7. 如果无法直接发布，请记录原因。
+
+十一、Facebook Reels 发布要求
+
+发布到 Facebook Reels 时，请读取：
+
+- facebook_caption
+- facebook_hashtags
+- thumbnail_file
+- privacy_status
+- schedule_time
+- timezone
+
+请检查：
+
+1. caption 是否存在。
+2. hashtags 是否自然。
+3. 是否适合 Facebook Page / Profile 发布。
+4. 是否存在 Facebook Page ID。
+5. 是否可以通过 Meta Graph API 发布。
+6. 如果无法直接发布，请记录原因。
+
+十二、dry-run mode
+
+请默认启用 dry-run mode。
+
+dry-run mode 下：
+
+1. 不要上传视频。
+2. 不要发布视频。
+3. 不要创建真实帖子。
+4. 只检查文件、metadata、平台字段、API 配置。
+5. 输出每个平台将要发布的标题、文案、hashtags、视频路径、封面路径、发布时间。
+6. 生成 dry-run 报告。
+
+只有在以下情况才可以真实发布：
+
+- .env 中 DRY_RUN=false
+- 或者我明确告诉你：“正式发布”
+- 或者我明确告诉你：“disable dry-run”
+
+十三、错误日志
+
+请创建 logs/ 文件夹。
+
+请记录：
+
+- validation_errors.log
+- posting_errors.log
+- posting_report.json
+- posting_report.md
+
+如果发布失败，请记录：
+
+- video_id
+- platform
+- error_message
+- error_code
+- timestamp
+- retry_count
+- final_status
+
+不要重复疯狂重试。
+
+十四、发布状态更新
+
+发布成功后，请更新 metadata.csv 中对应视频的 status。
+
+建议状态：
+
+- draft
+- ready
+- dry_run_checked
+- posted
+- failed
+- skipped
+
+如果是真实发布成功，请记录平台返回的 post_id、video_url 或 publish_id。
+
+如果只是 dry-run，请不要把状态改成 posted。
+
+十五、生成或检查自动发布脚本
+
+请检查项目中是否已经有自动发布脚本。
+
+如果没有，请帮我创建一个 Python 自动发布脚本，例如：
+
+publish_shorts.py
+
+脚本需要支持命令：
+
+python publish_shorts.py --dry-run
+python publish_shorts.py --publish
+python publish_shorts.py --platform youtube
+python publish_shorts.py --platform tiktok
+python publish_shorts.py --platform instagram
+python publish_shorts.py --platform facebook
+python publish_shorts.py --video-id short_01
+
+脚本需要做到：
+
+1. 读取 videos/。
+2. 读取 metadata.csv。
+3. 读取 publishing_plan.json。
+4. 读取 .env。
+5. 验证视频格式。
+6. 验证平台文案。
+7. 验证 hashtags。
+8. 验证 schedule_time。
+9. dry-run 预览。
+10. 正式发布。
+11. 生成 logs。
+12. 生成最终报告。
+
+十六、发布前最终检查
+
+发布前必须检查：
+
+1. 是否存在视频文件。
+2. 是否存在 metadata.csv。
+3. 是否存在 publishing_plan.json。
+4. 是否存在平台发布内容。
+5. 是否有必要的 API / OAuth token。
+6. 是否没有使用密码、cookie 或浏览器模拟登录。
+7. 是否 dry-run 通过。
+8. 是否没有重复发布。
+9. 是否 schedule_time 合法。
+10. 是否 privacy_status 合法。
+
+十七、最终输出
+
+执行完成后，请告诉我：
+
+1. 读取了哪个文件夹。
+2. 找到了几个视频。
+3. 哪些视频可以发布。
+4. 哪些视频不能发布，原因是什么。
+5. dry-run 是否通过。
+6. 如果是真实发布，分别发布到了哪些平台。
+7. 每个平台的发布结果。
+8. 每个平台返回的 post_id、publish_id 或 URL。
+9. logs 文件保存在哪里。
+10. posting_report.md 和 posting_report.json 保存在哪里。
+11. metadata.csv 是否已更新。
+12. 下一步我需要做什么。
+
+请严格按照以上要求执行。

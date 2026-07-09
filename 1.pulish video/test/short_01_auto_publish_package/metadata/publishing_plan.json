@@ -1,0 +1,104 @@
+{
+  "video_id": "short_01",
+  "file_path": "videos/short_01.mp4",
+  "thumbnail_path": "thumbnails/short_01.jpg",
+  "platforms": [
+    "youtube_shorts",
+    "tiktok",
+    "instagram_reels",
+    "facebook_reels"
+  ],
+  "platform_specific_content": {
+    "youtube_shorts": {
+      "title": "Fish Didn’t Leave. They Shut Down.",
+      "description": "One minute the bite is on. The next, the same spot and same lure go completely silent. This short explains why fish often stop biting even when they are still right under you.\n\nThe real question is not always where the fish went. It is what changed underwater.\n\n#Fishing #FishingTips #YouTubeShorts",
+      "tags": [
+        "fishing",
+        "fishing tips",
+        "bass fishing",
+        "why fish stop biting",
+        "fishing science",
+        "fish behavior",
+        "angler tips",
+        "freshwater fishing",
+        "shorts"
+      ],
+      "hashtags": [
+        "#Fishing",
+        "#FishingTips",
+        "#BassFishing",
+        "#FreshwaterFishing",
+        "#FishBehavior",
+        "#Shorts"
+      ],
+      "category": "Sports",
+      "made_for_kids": false,
+      "privacy_status": "private",
+      "allow_comments": true
+    },
+    "tiktok": {
+      "caption": "The fish didn’t vanish. Their motivation changed. Here’s why a hot bite can suddenly go dead.",
+      "hashtags": [
+        "#fishing",
+        "#fishingtips",
+        "#bassfishing",
+        "#freshwaterfishing",
+        "#anglertok",
+        "#fishbehavior"
+      ],
+      "posting_note": "Post as a vertical short-form educational fishing video. Keep the caption concise and avoid overpromising results.",
+      "privacy_status": "private",
+      "allow_comments": true
+    },
+    "instagram_reels": {
+      "caption": "A dead bite is rarely random.\n\nThe fish may still be there — but temperature, pressure, light, stress, or feeding behavior can change everything.",
+      "hashtags": [
+        "#fishing",
+        "#fishingtips",
+        "#bassfishing",
+        "#freshwaterfishing",
+        "#anglerlife",
+        "#fishbehavior",
+        "#reels"
+      ],
+      "cover_text": "WHY THE BITE DIES",
+      "posting_note": "Use the thumbnail or first strong fishing visual as the cover. Do not place cover text inside AI-generated images.",
+      "privacy_status": "private",
+      "allow_comments": true
+    },
+    "facebook_reels": {
+      "caption": "Ever had the bite completely shut off even though the fish were still there? This short breaks down the real reason: the fish didn’t leave — the conditions changed.",
+      "hashtags": [
+        "#Fishing",
+        "#FishingTips",
+        "#FreshwaterFishing",
+        "#BassFishing"
+      ],
+      "posting_note": "Publish to the connected Page or Profile selected by OAuth/API configuration. Use private or draft mode during testing when supported.",
+      "privacy_status": "private",
+      "allow_comments": true
+    }
+  },
+  "schedule": {
+    "schedule_time": "",
+    "timezone": "America/Toronto",
+    "publish_immediately": false
+  },
+  "safety_checklist": {
+    "vertical_9_16": true,
+    "short_video_length": "Should be under 3 minutes; recommended 45 to 120 seconds.",
+    "no_passwords_or_cookies": true,
+    "use_oauth_or_api_tokens_only": true,
+    "dry_run_first": true,
+    "validate_metadata_before_publish": true,
+    "log_errors_without_infinite_retry": true
+  },
+  "posting_settings": {
+    "dry_run_default": true,
+    "max_retries_per_platform": 2,
+    "retry_backoff_seconds": 60,
+    "write_logs_to": "logs/",
+    "generate_report_after_posting": true,
+    "do_not_publish_if_validation_fails": true
+  }
+}

@@ -1,0 +1,17 @@
+project/
+├── videos/
+│   └── short_01.mp4
+├── thumbnails/
+│   └── short_01.jpg
+├── metadata/
+│   ├── metadata.csv
+│   ├── publishing_plan.json
+│   ├── README_Codex.md
+│   ├── codex_prompt.txt
+│   └── platform_checklist.md
+├── logs/
+│   ├── dry_run_report.json
+│   ├── publish_report.json
+│   └── errors.log
+├── .env
+└── README_Codex.md

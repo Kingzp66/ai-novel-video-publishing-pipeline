@@ -1,0 +1,283 @@
+Please build a reusable automated AI story video generator project.
+
+Important requirement:
+I want this system to work by project folder name.
+Each time I start a new video project, I will only give you a project folder name.
+You must use the files inside that folder to generate the whole video.
+
+PROJECT_FOLDER = "D:\ai-novel-video-generator\1"
+
+My environment already has:
+- Python
+- Replicate
+- ElevenLabs
+- FFmpeg
+
+Goal:
+Build a Python-based pipeline that reads one project folder and automatically:
+1. reads the story script
+2. reads image prompts
+3. generates missing images using Replicate
+4. generates voiceover using ElevenLabs
+5. creates subtitles
+6. creates animated video clips from still images using Ken Burns style motion
+7. adds background music and sound effects
+8. exports the final video
+
+Please create a clean, modular, reusable codebase.
+
+==================================================
+PROJECT FOLDER STRUCTURE
+==================================================
+
+Each project folder will look like this:
+
+projects/
+  police_file_story/
+    script.txt
+    subtitle_script.txt
+    config.json
+    image_prompts.csv
+    music/
+      background.mp3
+    sfx/
+      hit.mp3
+      buzz.mp3
+    reference/
+      main_character.png
+
+Please assume future projects will use the same structure.
+
+==================================================
+WHAT EACH FILE MEANS
+==================================================
+
+1. script.txt
+- the full narration script
+- use it to generate voiceover if generate_voice = true
+
+2. subtitle_script.txt
+- optional
+- if present, use it to generate subtitle text
+- if absent, use script.txt
+
+3. config.json
+- contains project-level settings such as:
+  - project_name
+  - video_mode (horizontal or vertical)
+  - resolution
+  - fps
+  - generate_images
+  - generate_voice
+  - burn_subtitles
+  - use_background_music
+  - style_prefix
+  - replicate_model
+  - voice_name
+  - output_filename
+
+4. image_prompts.csv
+This file contains:
+- scene_id
+- start_time
+- end_time
+- image_file
+- motion_type
+- prompt
+- sfx
+
+Example columns:
+scene_id,start_time,end_time,image_file,motion_type,prompt,sfx
+
+Rules:
+- one row = one scene
+- if image_file does not exist locally, generate it using Replicate
+- save generated images into:
+  projects/police_file_story/generated_images/
+- if image already exists, skip generation unless force_regenerate = true in config
+
+==================================================
+IMAGE GENERATION RULES
+==================================================
+
+Use Replicate to generate images from the prompt field.
+
+Requirements:
+1. prepend config["style_prefix"] to every image prompt
+2. save image files to:
+   PROJECT_FOLDER/generated_images/
+3. keep file names from image_prompts.csv
+4. support retries if Replicate fails
+5. log success and failure
+6. skip scenes that already have images unless force_regenerate = true
+7. write a generation log file:
+   PROJECT_FOLDER/logs/image_generation_log.txt
+
+If a reference image exists in:
+PROJECT_FOLDER/reference/main_character.png
+then provide an easy extension point in the code so I can later add image-to-image or reference-based consistency.
+
+Do not hardcode one specific Replicate model architecture in a rigid way.
+Instead, make the model configurable in config.json.
+
+==================================================
+VOICEOVER RULES
+==================================================
+
+If generate_voice = true:
+1. read script.txt
+2. generate voiceover using ElevenLabs
+3. save it to:
+   PROJECT_FOLDER/generated_audio/voice.mp3
+
+Make the voice configurable in config.json.
+
+Also create:
+PROJECT_FOLDER/logs/voice_generation_log.txt
+
+==================================================
+SUBTITLE RULES
+==================================================
+
+Create subtitles automatically.
+
+Priority:
+1. use subtitle_script.txt if it exists
+2. otherwise use script.txt
+
+Use the timing from image_prompts.csv:
+- each scene subtitle can map to that scene's time range
+- create:
+  PROJECT_FOLDER/generated_subtitles/subtitles.srt
+
+Also support burning subtitles into the final video.
+
+Subtitle style:
+- white text
+- black outline
+- large readable font
+- bottom center
+- suitable for YouTube
+
+==================================================
+VIDEO GENERATION RULES
+==================================================
+
+Use FFmpeg to generate the final video.
+
+Input:
+- generated images
+- voice.mp3
+- optional background music
+- optional sound effects
+- subtitles.srt
+
+Output:
+- PROJECT_FOLDER/output/final_video.mp4
+
+Create a Ken Burns style motion effect for each scene based on motion_type.
+
+Supported motion_type values:
+- zoom_in
+- zoom_out
+- pan_left
+- pan_right
+- slow_push
+
+Each scene duration is based on:
+end_time - start_time
+
+If voiceover length is different from the scene total duration:
+- prefer using scene timings from image_prompts.csv
+- warn if total scene duration and voice length are very different
+
+==================================================
+AUDIO RULES
+==================================================
+
+1. add voice.mp3 as main narration audio
+2. if PROJECT_FOLDER/music/background.mp3 exists and use_background_music = true:
+   - mix it under the narration at low volume
+3. if an sfx value is listed in image_prompts.csv and the file exists in PROJECT_FOLDER/sfx/:
+   - add that sound effect at the scene start time
+
+==================================================
+CODE REQUIREMENTS
+==================================================
+
+Please create these files:
+
+- main.py
+- generate_images.py
+- generate_voice.py
+- make_subtitles.py
+- make_video.py
+- utils.py
+- requirements.txt
+- README.md
+
+==================================================
+HOW THE PROGRAM SHOULD RUN
+==================================================
+
+I want to run it like this:
+
+python main.py --project "projects/police_file_story"
+
+The program should:
+1. validate the project folder
+2. create missing output directories
+3. load config
+4. generate images
+5. generate voice
+6. generate subtitles
+7. render final video
+8. print a clear success/failure summary
+
+==================================================
+REUSABILITY REQUIREMENT
+==================================================
+
+This is very important:
+
+I will use the same system for many future projects.
+So do NOT hardcode "police_file_story" in the code.
+
+The code must work for any folder path passed in:
+python main.py --project "projects/another_project_name"
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Please include:
+- missing file checks
+- CSV validation
+- clear error messages
+- logs folder
+- retry logic for Replicate
+- retry logic for ElevenLabs if practical
+
+==================================================
+README REQUIREMENTS
+==================================================
+
+In README.md, explain:
+1. folder structure
+2. how to prepare a new project
+3. how to run the pipeline
+4. how to change only the project folder name for a new video
+5. where outputs are saved
+6. where logs are saved
+
+==================================================
+IMPORTANT CODING STYLE
+==================================================
+
+- beginner-friendly Python
+- clean function structure
+- comments in code
+- avoid unnecessary complexity
+- make it easy to edit later
+
+Now please generate the full project code.

@@ -1,0 +1,303 @@
+ChatGPT YouTube Shorts 素材包生成提示词
+版本：竖屏短视频拆分版 + 真实钓鱼教学插画风
+
+我会提供一段现有视频的文字稿/字幕/长文案。
+
+你需要先改写里面的内容，使其更吸引人、更精彩、更适合短视频传播，然后请将其拆分成多段可以独立制作的短视频素材包。
+
+这些短视频将用于 YouTube Shorts、TikTok、Instagram Reels 等竖屏短视频平台。
+
+视频格式要求：
+
+- 竖屏 9:16
+- 每段短视频时长不超过 3 分钟
+- 建议每段控制在 45 秒到 120 秒
+- 每段都要能单独发布
+- 不要制作成长篇横向 YouTube 视频
+- 不要输出 16:9 横屏视频素材
+- 不要只生成一个完整长视频脚本
+
+整体要求：
+
+1. 保留原文案的逻辑、情感走向、核心思想和重要信息。
+2. 重新改写措辞，使其听起来自然、流畅、有吸引力，适合英文短视频旁白。
+3. 最终所有旁白、标题、场景内容、图像提示词都必须使用英语。
+4. 不要输出中文内容。
+5. 不要提及本视频是基于字幕、文字稿或原文案制作的。
+6. 如果原文案杂乱、重复、太长或结构不清楚，请重新整理，让内容更适合短视频节奏。
+7. 不要简单总结原文，而是要改写成有节奏、有悬念、有情绪、有观看欲望的短视频脚本。
+8. 每段短视频都必须有清楚的开头、中间和结尾。
+9. 每段短视频必须围绕一个小主题、小故事、小观点或一个完整情绪点。
+10. 不要把一句话硬切开，要根据内容逻辑自然拆分。
+11. 每段短视频之间可以有连续性，但每段也必须能独立观看。
+12. 如果内容适合做系列短视频，请按 Part 1、Part 2、Part 3 的方式拆分。
+13. 每段短视频开头 3 秒必须有强钩子，适合让观众停下来观看。
+14. 结尾可以留下悬念、反转、问题或下一集引导。
+15. 所有图像提示词中都不能包含文字、徽标、字幕、水印、标签、标志或任何可读文字。
+
+短视频拆分规则：
+
+请根据我提供的长文案，自动拆分成多段短视频。
+
+每段短视频需要包含：
+
+- short_id
+- short_title
+- platform_title
+- duration_estimate
+- hook
+- narration_script
+- ending_line
+- scenes
+- image_prompts
+- production_notes
+
+每段短视频的结构必须是：
+
+1. Hook
+前 3 秒抓住观众注意力，可以使用悬念、反差、问题、冲突或情绪化句子。
+
+2. Setup
+快速告诉观众这段视频要讲什么。
+
+3. Main Story
+保留原文重点，但节奏更快，更适合短视频。
+
+4. Payoff
+给出这一段的重点、反转、情绪点、知识点或结论。
+
+5. Ending
+用一句简短有力的话结束，可以引导观众继续看下一段。
+
+场景要求：
+
+请为每段短视频拆分多个场景。
+
+每个场景都应适合制作一个竖屏 9:16 画面。
+
+每个场景需要提供以下信息：
+
+- short_id
+- scene_id
+- scene_title
+- narration
+- visual_description
+- image_prompt
+- camera_motion
+- estimated_duration
+
+每段短视频至少需要 4 个场景。
+
+如果某段短视频内容较长，可以拆成 6 到 10 个场景。
+
+每个场景的旁白要自然衔接，不要像分散的字幕句子。
+
+图像提示词要求：
+
+所有图像提示词必须是英文。
+
+所有图像提示词都必须适合竖屏短视频画面。
+
+核心视觉风格要求：
+
+请严格参考以下统一视觉风格来生成 image_prompt：
+
+Vertical 9:16 composition, vintage hand-drawn fishing instructional illustration style, clean line art, lightly colored natural tones, beige or off-white paper-like background, simple and clear educational diagram aesthetic, realistic fishing gear and fish anatomy, realistic outdoor water environments, minimal but informative composition, polished editorial illustration quality, no text, no logos, no subtitles, no watermark, no readable signs.
+
+画风参考说明：
+
+图像提示词的风格应接近以下特征：
+
+1. 复古手绘教学插画风
+2. 像钓鱼教程、钓组说明图、鱼类解说图
+3. 线条清晰，结构明确
+4. 颜色克制，不要过度鲜艳
+5. 背景简洁，通常为浅米色、浅纸张色、淡自然环境色
+6. 重点突出鱼、浮漂、钩子、鱼线、钓竿、饵料、钓组结构、水流关系等内容
+7. 整体看起来像专业钓鱼说明插画，而不是 fantasy 概念图
+
+真实感与合理性要求：
+
+在生成每个 image_prompt 时，必须确保画面符合现实，避免奇怪、不合理、失真的内容。
+
+请严格遵守以下规则：
+
+1. 鱼的外形必须真实合理
+   - 鱼的 anatomy 要自然
+   - 鳍、尾巴、眼睛、嘴部位置要正确
+   - 不要出现变形鱼、怪异比例、夸张表情、幻想生物感
+
+2. 钓具必须真实合理
+   - 鱼钩、浮漂、铅坠、子线、主线、鱼竿、卷线器、路亚、钓组连接方式要符合真实钓鱼逻辑
+   - 不要出现结构错误或漂浮错位的钓具
+   - 如果旁白提到 rig setup，要画成真实能用的 rig
+
+3. 动作必须符合现实
+   - 手持鱼钩、挂饵、抛竿、收线、浮漂状态、鱼咬钩状态都要自然
+   - 不要出现多余手指、畸形手、错误持握姿势
+   - 不要出现物体无支撑漂浮或不符合物理规律
+
+4. 环境必须可信
+   - 湖泊、河流、岸边、水下结构、树林、岩石等要符合真实户外场景
+   - 不要出现超现实背景
+   - 不要过于复杂杂乱，保持教学示意图的简洁性
+
+5. 画面必须易于理解
+   - 每张图要一眼就能看出重点
+   - 优先表现“这句话想说明的钓鱼知识点”
+   - 避免抽象、隐喻过强、难以理解的画面
+
+6. 绝对不要生成以下内容
+   - surreal imagery
+   - fantasy creatures
+   - distorted anatomy
+   - extra fingers
+   - broken fishing rigs
+   - floating disconnected objects
+   - nonsensical gear arrangements
+   - exaggerated cartoon comedy visuals
+   - chaotic cluttered composition
+
+图像生成逻辑要求：
+
+不要把 image_prompt 简单写成旁白的直译。
+
+而要根据旁白内容去想象：
+
+“如果一个专业钓鱼教学频道要把这句话做成一张清楚、真实、易懂、好看的教学插画，它应该长什么样？”
+
+因此每个 image_prompt 应优先考虑：
+
+1. 当前场景最重要的知识点是什么
+2. 最适合呈现这个知识点的画面是什么
+3. 这张图如何让观众一眼看懂
+4. 如何在保持教学清晰度的同时，让画面有一定美感
+
+人物与物体一致性要求：
+
+1. 人物需要保持一致。
+2. 主要角色的外貌、服装、年龄、气质需要在每个 image_prompt 中保持统一。
+3. 如果出现手部特写、钓竿特写、浮漂特写、鱼类特写，也要保持前后逻辑一致。
+4. 鱼种、装备类型、环境类型要和上下文一致，不要一会儿淡水鱼一会儿海鱼，除非旁白明确切换主题。
+5. 每个场景画面要有变化，但不能脱离统一画风。
+
+镜头运动示例：
+
+- slow push in
+- slow zoom out
+- subtle parallax movement
+- vertical pan
+- gentle handheld motion
+- slow left-to-right pan
+- dramatic close-up push
+- reveal shot
+- slight camera drift
+
+输出格式：
+
+A. short_video_overview
+
+请先列出这条长文案一共可以拆分成几段短视频。
+
+每段包括：
+
+- short_id
+- short_title
+- estimated_duration
+- main_topic
+- emotional_angle
+- why_it_works_as_a_short_video
+
+B. title_options
+
+为整个系列提供 5 个适合短视频系列的英文标题创意。
+
+C. short_segments.json
+
+输出一个 JSON 数组，每个对象代表一段短视频，格式如下：
+
+{
+  "short_id": "short_01",
+  "short_title": "...",
+  "platform_title": "...",
+  "duration_estimate": "...",
+  "hook": "...",
+  "narration_script": "...",
+  "ending_line": "...",
+  "emotional_tone": "...",
+  "target_platform": "YouTube Shorts / TikTok / Instagram Reels"
+}
+
+D. shorts.csv
+
+创建一个总表格，包含以下列：
+
+short_id, short_title, platform_title, duration_estimate, hook, main_topic, ending_line
+
+E. full_short_scripts
+
+为每段短视频分别输出完整英文旁白脚本。
+
+格式如下：
+
+short_01_script.txt
+short_02_script.txt
+short_03_script.txt
+
+F. scenes.csv
+
+创建一个包含所有短视频场景的表格，列名如下：
+
+short_id, scene_id, scene_title, narration, visual_description, image_prompt, camera_motion, estimated_duration
+
+G. image_prompts.jsonl
+
+每一行都应该是一个 JSON 对象，格式如下：
+
+{"short_id":"short_01","scene_id":"short_01_scene_01","image_prompt":"..."}
+
+H. production_notes
+
+请包含：
+
+- pacing
+- tone
+- visual_style
+- character_consistency
+- realism_rules_for_images
+- background_music_suggestions
+- editing_notes
+- subtitle_style
+- voiceover_style
+- platform_upload_suggestions
+
+I. codex_ready_structure
+
+请告诉我这些素材应该如何保存，方便 Codex 读取并批量生成短视频。
+
+建议文件结构：
+
+short_segments.json
+shorts.csv
+scenes.csv
+image_prompts.jsonl
+short_scripts/short_01_script.txt
+short_scripts/short_02_script.txt
+short_scripts/short_03_script.txt
+production_notes.md
+
+J. final_checklist
+
+最后请检查：
+
+1. 每段短视频是否不超过 3 分钟。
+2. 每段短视频是否可以独立发布。
+3. 是否全部使用英文。
+4. 是否为竖屏 9:16 设计。
+5. 是否没有中文输出。
+6. 图像提示词是否没有文字、logo、字幕、水印或可读标识。
+7. 图像提示词是否符合真实钓鱼逻辑，没有奇怪、不合理、失真的画面。
+8. 是否保持了统一的复古手绘钓鱼教学插画风格。
+9. 是否适合交给 Codex 分别生成多段短视频。
+
+请严格按照以上要求执行。
